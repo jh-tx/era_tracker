@@ -1,12 +1,12 @@
 "use server"
 
 export const submitId = async (formData) =>{
-    const id = formData.get("id")
-    pushId(parseInt(id))
+    const name = formData.get("name")
+    pushId(name)
     return formData; 
 }
 
-const getData = async () =>{
+export const getData = async () =>{
     const res = await 
 fetch("https://jsonplaceholder.typicode.com/users");
 
@@ -20,11 +20,11 @@ fetch("https://jsonplaceholder.typicode.com/users");
 // Fetch users data from the API
 const users = await getData();
 
-export const pushId = (id) => {
+export const pushId = (param) => {
     users.forEach((user) => {
         //console.log(user)
-        if (user.id === id) {
-            console.log(user.name);
+        if (user.name === param) {
+            return user.name;
         } else {
             return null
         }
