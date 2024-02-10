@@ -20,13 +20,3 @@ fetch("https://jsonplaceholder.typicode.com/users");
 // Fetch users data from the API
 const users = await getData();
 
-export const pushId = (param) => {
-    users.forEach((user) => {
-        //console.log(user)
-        if (user.name === param) {
-            return user.name;
-        } else {
-            return null
-        }
-    });
-};
