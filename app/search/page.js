@@ -62,7 +62,6 @@ const Search = () => {
 
     // Find user with the input name
     const user = playersData.people.find((playerData) => playerData.fullName.toLowerCase() === input.toLowerCase());
-    console.log(user)
     // If user exists, set the name to input and display the ERA
     if (user) {
       setName(`${user.fullName}'s ERA: ${user.stats[0].splits[0].stat.era}`);
