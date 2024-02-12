@@ -12,7 +12,6 @@ const Search = () => {
   useEffect(() => {
     const fetchPlayerID = async () => {
         try {
-            console.log(input)
             const res = await fetch(`https://statsapi.mlb.com/api/v1/people/search?names=${encodeURIComponent(input)}`);
             if (!res.ok) {
                 throw new Error("Something went wrong");
@@ -69,7 +68,7 @@ const Search = () => {
       setName(`${user.fullName}'s ERA: ${user.stats[0].splits[0].stat.era}`);
     } else {
       // If user doesn't exist, display a message
-      setName("User not found");
+      setName("Player not found");
     }
 
     setInput("");
