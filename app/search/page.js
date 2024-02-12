@@ -6,37 +6,44 @@ import { useState, useEffect } from "react";
 const Search = () => {
   const [input, setInput] = useState("");
   const [name, setName] = useState("");
-  const [playersID, setPlayerID] = useState([]);
-  const [playersData, setPlayerData] = useState([]);
+  const [playersID, setPlayerID] = useState("");
+  const [playersData, setPlayerData] = useState(null);
   
   useEffect(() => {
     const fetchPlayerID = async () => {
-      try {
-        const res = await fetch("https://statsapi.mlb.com/api/v1/sports/1/players?season=2023");
-        if (!res.ok) {
-          throw new Error("Something went wrong");
+        try {
+            console.log(input)
+            const res = await fetch(`https://statsapi.mlb.com/api/v1/people/search?names=${encodeURIComponent(input)}`);
+            if (!res.ok) {
+                throw new Error("Something went wrong");
+            }
+            const data = await res.json();
+            
+            if (data.people && data.people.length > 0) {
+                const firstPlayerId = data.people[0].id;
+                setPlayerID(firstPlayerId);
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
         }
-        const data = await res.json();
-        setPlayerID(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
     };
 
     fetchPlayerID();
-  }, []);
+}, [input]);
 
   //const playersID = 594798;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`https://statsapi.mlb.com/api/v1/people/${playersID}?hydrate=stats(group=[pitching],type=[byDateRange],startDate=01/01/2023,endDate=06/01/2023,season=2023)`);
-        if (!res.ok) {
-          throw new Error("Something went wrong");
+        if (playersID) {
+          const res = await fetch(`https://statsapi.mlb.com/api/v1/people/${playersID}?hydrate=stats(group=[pitching],type=[byDateRange],startDate=01/01/2023,endDate=06/01/2023,season=2023)`);
+          if (!res.ok) {
+            throw new Error("Something went wrong");
+          }
+          const data = await res.json();
+          setPlayerData(data);
         }
-        const data = await res.json();
-        setPlayerData(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -59,7 +66,7 @@ const Search = () => {
     console.log(user)
     // If user exists, set the name to input and display the ERA
     if (user) {
-      setName(`ERA: ${user.stats[0].splits[0].stat.era}`);
+      setName(`${user.fullName}'s ERA: ${user.stats[0].splits[0].stat.era}`);
     } else {
       // If user doesn't exist, display a message
       setName("User not found");
