@@ -30,13 +30,12 @@ const Search = () => {
     fetchPlayerID();
 }, [input]);
 
-  //const playersID = 594798;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (playersID) {
-          const res = await fetch(`https://statsapi.mlb.com/api/v1/people/${playersID}?hydrate=stats(group=[pitching],type=[byDateRange],startDate=01/01/2023,endDate=06/01/2023,season=2023)`);
+          const res = await fetch(`https://statsapi.mlb.com/api/v1/people/${playersID}?hydrate=stats(group=[pitching],type=[byDateRange],startDate=01/01/2023,endDate=10/01/2023,season=2023)`);
           if (!res.ok) {
             throw new Error("Something went wrong");
           }
