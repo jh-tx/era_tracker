@@ -11,14 +11,21 @@
     background-color: var(--bgSoft);
     padding: 50px;
     border-radius: 10px;
-    width: 500px;
-    height: 500px;
+    width: 800px;
+    height: 800px;
     display: flex;
     justify-content: center;
     gap: 30px;
     align-items: center;
     flex-direction: column;
 }
+
+.dateContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+
 
 .form input{
     width: 100%;
@@ -40,3 +47,6 @@
     border-radius: 5px;
 }
 
+.label{
+    font-size: 12px;
+}
