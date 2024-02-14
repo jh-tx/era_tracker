@@ -20,13 +20,6 @@
     flex-direction: column;
 }
 
-.dateContainer{
-    display: flex;
-    flex-direction: row;
-}
-
-
-
 .form input{
     width: 100%;
     padding: 30px;

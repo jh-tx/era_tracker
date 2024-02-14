@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 const Search = () => {
   const [input, setInput] = useState("");
-  const [name, setName] = useState("");
+  const [pitcher, setName] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [playersID, setPlayerID] = useState("");
@@ -92,7 +92,7 @@ const Search = () => {
         <input type="date" value={endDate} id="endDate"  className={styles.dates} name="endDate" min="1900-01-01" onChange={onEndDateChangeHandler} max="2024-12-31" required/>
         <input type="text" placeholder="pitchers name.." value={input} name="pitcherName" onChange={onChangeHandler} className={styles.input} required/>
         <button type="submit" className={styles.button}>Search</button>
-        <h2>{name}</h2>
+        <h2>{pitcher}</h2>
       </form>
     </div>
   );
