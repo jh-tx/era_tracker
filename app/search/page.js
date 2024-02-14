@@ -11,7 +11,6 @@ const Search = () => {
   const [playersID, setPlayerID] = useState("");
   const [playersData, setPlayerData] = useState(null);
 
-
   // fetch players ID # based on user input
   useEffect(() => {
     const fetchPlayerID = async () => {
@@ -70,17 +69,17 @@ const Search = () => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
-    // Find user with the input name
-    const user = playersData.people.find((playerData) => playerData.fullName.toLowerCase() === input.toLowerCase());
-    // If user exists, set the name to input and display the ERA
-    try{
-      setName(user ? `${user.fullName}'s ERA: ${user.stats[0].splits[0].stat.era}` : "Player not found");
-    }catch(error){
-      setName("No ERA Stat Available For This Date Range")
+    // Find pitcher with the input name
+    const pitcher = playersData.people.find((playerData) => playerData.fullName.toLowerCase() === input.toLowerCase());
+    // If pitcher exists, set the name to input and display the ERA
+    try {
+      setName(pitcher ? `${pitcher.fullName}'s ERA: ${pitcher.stats[0].splits[0].stat.era}` : "Player not found");
+    } catch(error) {
+      setName("No ERA Data Available For This Date Range");
     }
-    
-
     setInput("");
+    setStartDate("");
+    setEndDate("");
   };
 
   return (
@@ -88,9 +87,9 @@ const Search = () => {
       <form className={styles.form} onSubmit={onSubmitHandler}>
         <h1>ERA Lookup Tool</h1>
         <label htmlFor="startDate" className={styles.label}>Start Date:</label>
-        <input type="date" id="startDate" className={styles.dates} name="startDate" min="1900-01-01" onChange={onStartDateChangeHandler} max="2024-12-31" required/>
+        <input type="date" value={startDate} id="startDate" className={styles.dates} name="startDate" min="1900-01-01" onChange={onStartDateChangeHandler} max="2024-12-31" required/>
         <label htmlFor="endDate" className={styles.label}>End Date:</label>
-        <input type="date" id="endDate"  className={styles.dates} name="endDate" min="1900-01-01" onChange={onEndDateChangeHandler} max="2024-12-31" required/>
+        <input type="date" value={endDate} id="endDate"  className={styles.dates} name="endDate" min="1900-01-01" onChange={onEndDateChangeHandler} max="2024-12-31" required/>
         <input type="text" placeholder="pitchers name.." value={input} name="pitcherName" onChange={onChangeHandler} className={styles.input} required/>
         <button type="submit" className={styles.button}>Search</button>
         <h2>{name}</h2>
