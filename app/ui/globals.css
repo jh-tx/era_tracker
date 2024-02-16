@@ -42,6 +42,9 @@ a{
   .container {
     width: 1280px;
   }
+  .form{
+    width: 25%;
+  }
 }
 
 @media (max-width: 1280px) {
@@ -50,27 +53,7 @@ a{
     padding-left: 20px;
     padding-right: 20px;
   }
-}
-
-@media (max-width: 1024px) {
-  .container {
-    width: 768px;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    width: 640px;
-  }
-}
-
-@media (max-width: 640px) {
-  .container {
-    width: 475px;
-  }
-}
-@media (max-width: 475px) {
-  .container {
-    width: 380px;
+  .form{
+    width: 25%;
   }
 }
