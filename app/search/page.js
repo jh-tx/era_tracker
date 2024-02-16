@@ -87,9 +87,9 @@ const Search = () => {
       <form className={styles.form} onSubmit={onSubmitHandler}>
         <h1>ERA Lookup Tool</h1>
         <label htmlFor="startDate" className={styles.label}>Start Date:</label>
-        <input type="date" value={startDate} id="startDate" name="startDate" min="1900-01-01" onChange={onStartDateChangeHandler} max="2024-12-31" required/>
+        <input type="date" value={startDate} id="startDate" className={styles.dates} name="startDate" min="1900-01-01" onChange={onStartDateChangeHandler} max="2024-12-31" required/>
         <label htmlFor="endDate" className={styles.label}>End Date:</label>
-        <input type="date" value={endDate} id="endDate" name="endDate" min="1900-01-01" onChange={onEndDateChangeHandler} max="2024-12-31" required/>
+        <input type="date" value={endDate} id="endDate"  className={styles.dates} name="endDate" min="1900-01-01" onChange={onEndDateChangeHandler} max="2024-12-31" required/>
         <input type="text" placeholder="pitchers name.." value={input} name="pitcherName" onChange={onChangeHandler} className={styles.input} required/>
         <button type="submit" className={styles.button}>Search</button>
         <h2>{pitcher}</h2>

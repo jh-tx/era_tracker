@@ -20,7 +20,7 @@
     flex-direction: column;
 }
 
-.form input{
+.input{
     width: 100%;
     padding: 30px;
     border: 2px solid #2e374a;
@@ -40,3 +40,12 @@
     border-radius: 5px;
 }
 
+.dates{
+    width: 5%;
+    padding: 30px;
+    border: 2px solid #2e374a;
+    border-radius: 5px;
+    background-color: var(--bg);
+    color: var(--text);
+    text-align: center;
+}
