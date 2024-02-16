@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 const Search = () => {
   const [input, setInput] = useState("");
   const [pitcher, setName] = useState("");
-  const [startDate, setStartDate] = useState("2023-01-01");
-  const [endDate, setEndDate] = useState("2024-01-01");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const [playersID, setPlayerID] = useState("");
   const [playersData, setPlayerData] = useState(null);
 
