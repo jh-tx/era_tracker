@@ -1,0 +1,40 @@
+
+.scorecard {
+    width: 300px;
+    padding: 20px;
+    background-color: var(--bgSoft);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.image {
+    width: auto;
+    height: 320px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.header h1, .header p {
+    margin: 5px 0;
+}
+
+.statistics, .performance {
+    margin-top: 20px;
+}
+
+.statistics h2, .performance h2 {
+    margin-top: 0;
+}
+
+.statistics ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.statistics li {
+    margin-bottom: 5px;
+}
+
+.performance p {
+    margin: 5px 0;
+}

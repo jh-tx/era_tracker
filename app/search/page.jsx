@@ -39,6 +39,7 @@ const Search = () => {
       try {
         if (playersID) {
           const res = await fetch(`https://statsapi.mlb.com/api/v1/people/${playersID}?hydrate=stats(group=[pitching],type=[byDateRange],startDate=${startDate},endDate=${endDate})`);
+          console.log(res)
           if (!res.ok) {
             throw new Error("Something went wrong");
           }
